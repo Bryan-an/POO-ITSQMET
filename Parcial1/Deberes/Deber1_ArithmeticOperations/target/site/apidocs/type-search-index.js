@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"com.desarrollo.deber1_arithmeticoperations","l":"MainClass"},{"p":"com.desarrollo.deber1_arithmeticoperations","l":"Operations"}];updateSearchResults();
