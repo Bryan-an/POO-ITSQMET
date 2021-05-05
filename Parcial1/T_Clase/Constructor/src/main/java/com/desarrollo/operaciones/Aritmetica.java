@@ -1,5 +1,5 @@
 /*
-Operaciones aritméticas
+Constructor 5-5-2021
  */
 package com.desarrollo.operaciones;
 
@@ -10,18 +10,28 @@ package com.desarrollo.operaciones;
 public class Aritmetica {
 
     //atributos
-    double resultado;
+    double num1, num2, resultado;
+
+    //constructor - el oonstructor siempre tiene el nombre de la clase
+//    public Aritmetica() {
+//        System.out.println("Constructor vacío");
+//    }
+    public Aritmetica(double num1, double num2) {
+        //El labor del constructor es inicializar los atributos que son parte del objeto.
+        this.num1 = num1;
+        this.num2 = num2;
+    }
 
     //métodos
     //método void
-    public void sumaVoid(double num1, double num2) {  //parámetros --> esperan un valor y se pasan de una clase a otra
+    public void sumaVoid() {  //parámetros --> esperan un valor y se pasan de una clase a otra
         resultado = num1 + num2;
         System.out.println("La suma es: " + resultado);
     }
 
     //método return --> retornan un valor
     //el tipo del método depende del valor que va a retornar
-    public double sumaReturn(double num1, double num2) {
+    public double sumaReturn() {
         resultado = num1 + num2;
         return resultado;
     }
@@ -30,18 +40,18 @@ public class Aritmetica {
     //restricciones división:
     //0/0 --> indeterminación
     //4/0 --> no existe división para cero
-    public void resta(double num1, double num2) {
+    public void resta() {
         System.out.println("La resta es: " + (num1 - num2));
     }
 
     //multiplicación
-    public void multiplicacion(double num1, double num2) {
+    public void multiplicacion() {
         resultado = num1 * num2;
         System.out.println("La multiplicación es: " + resultado);
     }
 
     //división
-    public void division(double num1, double num2) {
+    public void division() {
         if (num1 == 0 && num2 == 0) {
             System.out.println("INDETERMINACIÓN");
         } else if (num2 == 0) {
@@ -51,5 +61,4 @@ public class Aritmetica {
             System.out.println("La división es: " + resultado);
         }
     }
-
 }
