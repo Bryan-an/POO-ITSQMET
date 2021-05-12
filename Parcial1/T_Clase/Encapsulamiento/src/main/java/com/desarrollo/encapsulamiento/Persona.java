@@ -16,10 +16,10 @@ public class Persona {
     private double sueldo;
 
     //Constructor
-    public Persona(String arg1, int arg2, double arg3) {
-        nombre = arg1;
-        edad = arg2;
-        sueldo = arg3;
+    public Persona(String nombre, int edad, double sueldo) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.sueldo = sueldo;
     }
 
     //Get's y Set's
@@ -49,12 +49,10 @@ public class Persona {
     public void setSueldo(double sueldo) {
         this.sueldo = sueldo;
     }
-    
-    //Método toString
 
+    //Método toString
     @Override
     public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", edad=" + edad + ", sueldo=" + sueldo + '}';
+        return "Persona{" + "nombre: " + nombre + ", edad: " + edad + ", sueldo: " + sueldo + '}';
     }
-    
 }

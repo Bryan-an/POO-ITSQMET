@@ -9,6 +9,9 @@ package com.desarrollo.encapsulamiento;
  */
 public class ClaseEjecutablePersona {
 
+    //Variables de clase
+    String nombre;
+
     /**
      * @param args the command line arguments
      */
@@ -16,11 +19,13 @@ public class ClaseEjecutablePersona {
         //Crear objeto
         Persona persona = new Persona("Bryan", 20, 380);
 
-        persona.setNombre("Andrés");
-        persona.setEdad(32);
-        persona.setSueldo(1000);
-
+//        persona.setNombre("Andrés");
+//        persona.setEdad(32);
+//        persona.setSueldo(1000);
         System.out.println(persona);
     }
 
+    public void prueba() {
+        System.out.print("Nombre: " + nombre);
+    }
 }
