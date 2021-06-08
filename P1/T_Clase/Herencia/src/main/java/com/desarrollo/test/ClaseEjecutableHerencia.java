@@ -17,14 +17,25 @@ public class ClaseEjecutableHerencia {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int op, opE, opC;
-        String nombre, direccion, vip;
+        int numeroOpcionPrincipal;
+        int numeroOpcionEmpleado;
+        int numeroOpcionCliente;
+        int edad;
+        int horasTrabajadas;
+        double valorHora;
         char genero;
-        int edad, horasT;
-        double valorH;
+        String nombre;
+        String direccion;
+        String vip;
+
         Empleado empleado = null;
         Cliente cliente = null;
         Scanner sc = new Scanner(System.in);
+
+        Empleado empleado1 = new Empleado();
+        System.out.println(empleado1);
+        Empleado empleado2 = new Empleado(80, 8.5);
+        System.out.println(empleado2);
 
         do {
 
@@ -33,29 +44,38 @@ public class ClaseEjecutableHerencia {
             System.out.println("2. Cliente");
             System.out.println("3. Salir");
             System.out.println("Escoja una opción: ");
-            op = sc.nextInt();
+            numeroOpcionPrincipal = sc.nextInt();
+            sc.skip("\n");
 
-            switch (op) {
+            switch (numeroOpcionPrincipal) {
                 case 1:
                     do {
-                        System.out.println("\nAcciones\n1. Ingresar datos\n2. Visualizar datos\n3. Salir\nEscoja una opción: ");
-                        opE = sc.nextInt();
+                        System.out.println("\nAcciones"
+                                + "\n1. Ingresar datos"
+                                + "\n2. Visualizar datos"
+                                + "\n3. Salir"
+                                + "\nEscoja una opción: ");
+                        numeroOpcionEmpleado = sc.nextInt();
+                        sc.skip("\n");
 
-                        switch (opE) {
+                        switch (numeroOpcionEmpleado) {
                             case 1:
                                 System.out.println("Nombre: ");
-                                nombre = sc.next();
+                                nombre = sc.nextLine();
                                 System.out.println("Género: ");
                                 genero = sc.next().charAt(0);
                                 System.out.println("Edad: ");
                                 edad = sc.nextInt();
+                                sc.skip("\n");
                                 System.out.println("Dirección: ");
-                                direccion = sc.next();
+                                direccion = sc.nextLine();
                                 System.out.println("Horas trabajadas: ");
-                                horasT = sc.nextInt();
+                                horasTrabajadas = sc.nextInt();
+                                sc.skip("\n");
                                 System.out.println("Valor hora: ");
-                                valorH = sc.nextDouble();
-                                empleado = new Empleado(nombre, genero, edad, direccion, horasT, valorH);
+                                valorHora = sc.nextDouble();
+                                empleado = new Empleado(nombre, genero, edad, direccion, horasTrabajadas, valorHora);
+                                empleado1 = new Empleado();
                                 break;
 
                             case 2:
@@ -65,24 +85,30 @@ public class ClaseEjecutableHerencia {
                             default:
 
                         }
-                    } while (opE != 3);
+                    } while (numeroOpcionEmpleado != 3);
                     break;
 
                 case 2:
                     do {
-                        System.out.println("\nAcciones\n1. Ingresar datos\n2. Visualizar datos\n3. Salir\nEscoja una opción: ");
-                        opC = sc.nextInt();
+                        System.out.println("\nAcciones"
+                                + "\n1. Ingresar datos"
+                                + "\n2. Visualizar datos"
+                                + "\n3. Salir"
+                                + "\nEscoja una opción: ");
+                        numeroOpcionCliente = sc.nextInt();
+                        sc.skip("\n");
 
-                        switch (opC) {
+                        switch (numeroOpcionCliente) {
                             case 1:
                                 System.out.println("Nombre: ");
-                                nombre = sc.next();
+                                nombre = sc.nextLine();
                                 System.out.println("Género: ");
                                 genero = sc.next().charAt(0);
                                 System.out.println("Edad: ");
                                 edad = sc.nextInt();
+                                sc.skip("\n");
                                 System.out.println("Dirección: ");
-                                direccion = sc.next();
+                                direccion = sc.nextLine();
                                 System.out.println("VIP(si/no): ");
                                 vip = sc.next();
                                 cliente = new Cliente(nombre, genero, edad, direccion, vip);
@@ -93,7 +119,7 @@ public class ClaseEjecutableHerencia {
                             default:
 
                         }
-                    } while (opC != 3);
+                    } while (numeroOpcionCliente != 3);
 
                     break;
 
@@ -103,7 +129,7 @@ public class ClaseEjecutableHerencia {
                 default:
                     System.out.println("Opción inválida");
             }
-        } while (op != 3);
+        } while (numeroOpcionPrincipal != 3);
 
     }
 

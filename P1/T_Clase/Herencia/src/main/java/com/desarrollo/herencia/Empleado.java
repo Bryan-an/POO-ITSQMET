@@ -10,14 +10,31 @@ package com.desarrollo.herencia;
 public class Empleado extends Persona {
 
     //Atributos
+    private static int contEmpleado = 0;
     private int idEmpleado;
     private int horasT;
     private double valorH;
-    private static int contEmpleado = 0;
+
+    //constructor en vacío
+    public Empleado() {
+        this.idEmpleado = ++contEmpleado;
+    }
+
+    public Empleado(int horasT, double valorH) {
+        this();     //se llama al constructor vació de la clase padre 
+        //porque el constructor Empleado sin argumentos 
+        //no tiene la declaración super
+
+        //this("dfs",'c', 78,"df", 78, 41);     //se llama al constructor con argumentos 
+        //de la clase padre porque el constructor 
+        //Empleado con argumentos declara super con argumentos
+        this.horasT = horasT;
+        this.valorH = valorH;
+    }
 
     //Constructor
     public Empleado(String nombre, char genero, int edad, String direccion, int horasT, double valorH) {
-        //Se debe llamar a constructor de la clase padre
+        //Se debe llamar al constructor de la clase padre
         super(nombre, genero, edad, direccion);
         this.idEmpleado = ++contEmpleado;
         this.horasT = horasT;
@@ -52,12 +69,14 @@ public class Empleado extends Persona {
     //toString
     @Override
     public String toString() {
-        return super.toString() + "Empleado{" + "idEmpleado=" + idEmpleado + ", horasT=" + horasT + ", valorH=" + valorH + '}';
+        return super.toString() + "Empleado{" + "idEmpleado=" + idEmpleado
+                + ", horasT=" + horasT + ", valorH=" + valorH + '}';
     }
 
     //Métodos
     public void calcularSueldo() {
         double sueldo;
+
         sueldo = horasT * valorH;
         System.out.println("El sueldo del empleado es: " + sueldo);
     }

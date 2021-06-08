@@ -28,6 +28,12 @@ public class Persona {
         this.direccion = direccion;
     }
 
+    public Persona(String nombre, char genero, int edad) {
+        this.nombre = nombre;
+        this.genero = genero;
+        this.edad = edad;
+    }
+
     //Get-Set
     public String getNombre() {
         return nombre;
@@ -64,7 +70,8 @@ public class Persona {
     //toString
     @Override
     public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", genero=" + genero + ", edad=" + edad + ", direccion=" + direccion + '}';
+        return "Persona{" + "nombre=" + nombre + ", genero=" + genero
+                + ", edad=" + edad + ", direccion=" + direccion + '}';
     }
 
 }

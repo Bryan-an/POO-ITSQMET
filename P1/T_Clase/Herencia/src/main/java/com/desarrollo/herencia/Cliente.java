@@ -10,9 +10,9 @@ package com.desarrollo.herencia;
 public class Cliente extends Persona {
 
     //Atributos
+    private static int contCliente = 0;
     private int idCliente;
     private String vip;
-    private static int contCliente = 0;
 
     //Constructor
     public Cliente(String nombre, char genero, int edad, String direccion, String vip) {
