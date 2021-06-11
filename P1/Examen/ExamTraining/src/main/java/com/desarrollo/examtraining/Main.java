@@ -9,7 +9,7 @@ import java.util.Scanner;
  *
  * @author bryan
  */
-public class Main {
+public final class Main {
 
     //Fields
     private Scanner sc = new Scanner(System.in);
@@ -31,7 +31,7 @@ public class Main {
         int optionNumber;
 
         do {
-            System.out.println("\n---------------Tipo de Producto---------------\n"
+            System.out.println("\n-------------Tipo de Producto-------------\n"
                     + "\n1. Perecedero"
                     + "\n2. No perecedero"
                     + "\n3. Salir\n"
@@ -55,11 +55,10 @@ public class Main {
                 break;
             default:
                 System.out.println("\nOpción inválida, intente de nuevo");
-                ;
         }
     }
 
-    public void askData(int type) {
+    public void askData(int PRODUCT_TYPE) {
         System.out.println("\nIngrese el nombre del producto:");
         String name = sc.nextLine();
 
@@ -67,23 +66,31 @@ public class Main {
         double price = sc.nextDouble();
         sc.skip("\n");
 
-        switch (type) {
+        switch (PRODUCT_TYPE) {
             case PERISHABLE:
                 System.out.println("\nIngrese los días a caducar del producto:");
                 int daysExpire = sc.nextInt();
                 sc.skip("\n");
-                Perishable perishable = new Perishable(name, price, daysExpire);
-                perishable.calculatePrice();
-                System.out.println(perishable);
+                displayPerishable(name, price, daysExpire);
                 break;
 
             case NONPERISHABLE:
                 System.out.println("\nIngrese el tipo del producto:");
-                String typeProduct = sc.nextLine();
-                Nonperishable nonperishable = new Nonperishable(name, price, typeProduct);
-                System.out.println(nonperishable);
+                String type = sc.nextLine();
+                displayNonperishable(name, price, type);
                 break;
         }
+    }
+
+    public void displayPerishable(String name, double price, int daysExpire) {
+        Perishable perishable = new Perishable(name, price, daysExpire);
+        perishable.calculatePrice();
+        System.out.println(perishable);
+    }
+
+    public void displayNonperishable(String name, double price, String type) {
+        Nonperishable nonperishable = new Nonperishable(name, price, type);
+        System.out.println(nonperishable);
     }
 
 }

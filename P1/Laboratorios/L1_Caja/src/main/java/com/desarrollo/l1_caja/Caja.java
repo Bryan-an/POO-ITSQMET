@@ -13,6 +13,26 @@ public class Caja {
     //Campos
     private double alto, ancho, profundidad;
 
+    //Constructores
+    /**
+     * Constructor vacío de la clase Caja.F
+     */
+    public Caja() {
+    }
+
+    /**
+     * Constructor de la clase Caja.
+     *
+     * @param alto Alto de la caja.
+     * @param ancho Ancho de la caja.
+     * @param profundidad Largo de la caja.
+     */
+    public Caja(double alto, double ancho, double profundidad) {
+        this.alto = alto;
+        this.ancho = ancho;
+        this.profundidad = profundidad;
+    }
+
     //Getter y Setters
     public double getAlto() {
         return alto;
@@ -35,23 +55,6 @@ public class Caja {
     }
 
     public void setProfundidad(double profundidad) {
-        this.profundidad = profundidad;
-    }
-
-    //Constructores
-    public Caja() {
-    }
-
-    /**
-     * Constructor de la clase Caja.
-     *
-     * @param alto Alto de la caja.
-     * @param ancho Ancho de la caja.
-     * @param profundidad Largo de la caja.
-     */
-    public Caja(double alto, double ancho, double profundidad) {
-        this.alto = alto;
-        this.ancho = ancho;
         this.profundidad = profundidad;
     }
 
