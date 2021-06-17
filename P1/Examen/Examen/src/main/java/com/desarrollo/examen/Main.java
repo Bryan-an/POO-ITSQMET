@@ -6,6 +6,10 @@ package com.desarrollo.examen;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+enum TipoBebida {
+    AZUCARADA, AGUA;
+}
+
 /**
  * Creada por Bryan en 9/6/2021
  *
@@ -14,8 +18,6 @@ import java.util.Scanner;
 public final class Main {
 
     //Fields
-    public static final int AZUCARADA = 1;
-    public static final int AGUA = 2;
     private Scanner sc = new Scanner(System.in);
     private ArrayList<Bebida> azucaradas = new ArrayList<Bebida>();
     private ArrayList<Bebida> aguas = new ArrayList<Bebida>();
@@ -65,10 +67,10 @@ public final class Main {
     public void realizarOperaciones(int numeroOpcion) {
         switch (numeroOpcion) {
             case 1:
-                pedirDatos(AZUCARADA);
+                pedirDatos(TipoBebida.AZUCARADA);
                 break;
             case 2:
-                pedirDatos(AGUA);
+                pedirDatos(TipoBebida.AGUA);
                 break;
             case 3:
                 if (Bebida.getContadorBebidas() == 0) {
@@ -90,7 +92,7 @@ public final class Main {
      *
      * @param TIPO_BEBIDA Tipo de bebida.
      */
-    public void pedirDatos(int TIPO_BEBIDA) {
+    public void pedirDatos(TipoBebida TIPO_BEBIDA) {
         System.out.println("\nIngrese el tipo de botella:");
         String tipoBotella = sc.next();
         System.out.println("\nIngrese la cantidad de litros:");
