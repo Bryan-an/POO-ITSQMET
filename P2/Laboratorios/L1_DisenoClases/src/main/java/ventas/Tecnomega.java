@@ -119,6 +119,9 @@ public final class Tecnomega {
             switch (other) {
                 case 'n':
                     order.showOrder();
+                    System.out.println("\nCosto tatal del pedido: $"
+                            + (Math.round(order.discountOrder()
+                                    * 100.0) / 100.0));
                     orders.add(order);
                     break;
                 case 's':
