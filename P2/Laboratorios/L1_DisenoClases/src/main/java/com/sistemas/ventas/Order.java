@@ -24,7 +24,7 @@ public class Order {
         computers = new ArrayList<Computer>();
         orderID = ++orderCounter;
     }
-    
+
     //Get-Set
     public static int getOrderCounter() {
         return orderCounter;
@@ -57,7 +57,6 @@ public class Order {
     public void setComputerCounter(int computerCounter) {
         this.computerCounter = computerCounter;
     }
-    
 
     //Methods
     public void addComputer(Computer computer) {

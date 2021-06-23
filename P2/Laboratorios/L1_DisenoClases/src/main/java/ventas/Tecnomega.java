@@ -70,6 +70,7 @@ public final class Tecnomega {
             System.out.println("\nIngrese la marca de la computadora:");
             String computerMake = sc.next();
 
+            System.out.println("\n---------------Monitor---------------");
             System.out.println("\nIngrese la marca del monitor:");
             String monitorMake = sc.next();
 
@@ -79,6 +80,7 @@ public final class Tecnomega {
             System.out.println("\nIngrese el precio del monitor ($):");
             double monitorPrice = sc.nextDouble();
 
+            System.out.println("\n---------------Teclado---------------");
             System.out.println("\nIngrese el tipo de entrada del teclado:");
             String keyboardInputType = sc.next();
 
@@ -88,6 +90,7 @@ public final class Tecnomega {
             System.out.println("\nIngrese el precio del teclado ($):");
             double keyboardPrice = sc.nextDouble();
 
+            System.out.println("\n---------------Ratón---------------");
             System.out.println("\nIngrese el tipo de entrada del ratón:");
             String mouseInputType = sc.next();
 
@@ -117,17 +120,16 @@ public final class Tecnomega {
             other = sc.next().charAt(0);
 
             switch (other) {
-                case 'n':
+                case 'n' -> {
                     order.showOrder();
                     System.out.println("\nCosto tatal del pedido: $"
                             + (Math.round(order.discountOrder()
                                     * 100.0) / 100.0));
                     orders.add(order);
-                    break;
-                case 's':
+                }
+                case 's' ->
                     wantMore = true;
-                    break;
-                default:
+                default ->
                     System.out.println("\nOpción inválida intente de nuevo");
             }
         } while (!(other == 's' || other == 'n'));
@@ -143,9 +145,10 @@ public final class Tecnomega {
             int orderID = sc.nextInt();
 
             if (orderID > 0 && orderID <= Order.getOrderCounter()) {
-                orders.stream().filter(order -> order.getOrderID()
-                        == orderID).forEach(order
-                        -> System.out.println("\nCosto tatal del pedido "
+                orders.stream()
+                        .filter(order -> order.getOrderID() == orderID)
+                        .forEach(order
+                                -> System.out.println("\nCosto tatal del pedido "
                                 + orderID + ": $"
                                 + (Math.round(((Order) order).discountOrder()
                                         * 100.0) / 100.0)));
@@ -163,9 +166,9 @@ public final class Tecnomega {
             int orderID = sc.nextInt();
 
             if (orderID > 0 && orderID <= Order.getOrderCounter()) {
-                orders.stream().filter(order -> order.getOrderID()
-                        == orderID).forEach(order
-                        -> ((Order) order).showOrder());
+                orders.stream()
+                        .filter(order -> order.getOrderID() == orderID)
+                        .forEach(order -> ((Order) order).showOrder());
             } else {
                 System.out.println("\nNo existe");
             }

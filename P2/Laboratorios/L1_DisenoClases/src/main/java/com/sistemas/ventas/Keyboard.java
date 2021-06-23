@@ -24,7 +24,7 @@ public class Keyboard extends InputDevices {
     //toString
     @Override
     public String toString() {
-        return "Keyboard{" + "KeyboardID = " + keyboardID + super.toString();
+        return "Teclado{" + "TecladoID = " + keyboardID + super.toString();
     }
 
 }

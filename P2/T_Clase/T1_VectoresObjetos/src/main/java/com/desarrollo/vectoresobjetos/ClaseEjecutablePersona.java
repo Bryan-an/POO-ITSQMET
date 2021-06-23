@@ -19,6 +19,7 @@ public class ClaseEjecutablePersona {
      */
     public static void main(String[] args) {
 
+        //Variables y objetos
         Scanner sc = new Scanner(System.in);
         String nombre;
         int cedula;
@@ -28,7 +29,7 @@ public class ClaseEjecutablePersona {
         Persona[] personas = new Persona[3];
         var personasCol = new ArrayList<Persona>();
 
-        //Almacenar informacións
+        //Almacenar información
         for (int i = 0; i < personas.length; i++) {
             System.out.println("\nInformación persona:");
             System.out.println("Ingrese el nombre de la persona " + (i + 1)

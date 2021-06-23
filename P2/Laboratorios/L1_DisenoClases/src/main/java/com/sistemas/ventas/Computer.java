@@ -95,9 +95,9 @@ public class Computer {
     //toString
     @Override
     public String toString() {
-        return "Computer{\nComputerID: " + computerID + "\nMake: " + make
-                + "\nMonitor: " + monitor + "\nKeyboard: " + keyboard
-                + "\nMouse: " + mouse + "\nPrice: $"
+        return "Computadora{\nComputadoraID: " + computerID + "\nMarca: " + make
+                + "\nMonitor: " + monitor + "\nTeclado: " + keyboard
+                + "\nRatón: " + mouse + "\nPrecio: $"
                 + (Math.round(price * 100.0) / 100.0) + "}\n";
     }
 

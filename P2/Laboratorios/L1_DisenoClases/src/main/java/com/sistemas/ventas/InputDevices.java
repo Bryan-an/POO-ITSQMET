@@ -50,8 +50,8 @@ public class InputDevices {
     //toString
     @Override
     public String toString() {
-        return "; Input type = " + inputType + "; Make = " + make + "; Price = $"
-                + (Math.round(price * 100.0) / 100.0) + '}';
+        return "; Tipo de entrada = " + inputType + "; Marca = " + make
+                + "; Precio = $" + (Math.round(price * 100.0) / 100.0) + '}';
     }
 
 }

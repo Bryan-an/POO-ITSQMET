@@ -24,7 +24,7 @@ public class Mouse extends InputDevices {
     //toString
     @Override
     public String toString() {
-        return "Mouse{" + "MouseID = " + mouseID + super.toString();
+        return "Ratón{" + "RatónID = " + mouseID + super.toString();
     }
 
 }

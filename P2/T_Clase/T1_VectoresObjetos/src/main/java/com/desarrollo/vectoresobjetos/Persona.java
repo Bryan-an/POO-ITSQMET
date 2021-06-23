@@ -11,11 +11,14 @@ package com.desarrollo.vectoresobjetos;
  */
 public class Persona {
 
+    //Campos
+    private static int contPersona;
+
     private int idPersona;
     private String nombre;
     private int cedula;
-    private static int contPersona;
 
+    //Constructores
     private Persona() {
         this.idPersona = ++contPersona;
     }

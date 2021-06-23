@@ -74,8 +74,8 @@ public class Monitor {
     //toString
     @Override
     public String toString() {
-        return "Monitor{" + "MonitorID = " + monitorID + "; Make = " + make
-                + "; Size = " + size + " cm"+ "; Price = $"
+        return "Monitor{" + "MonitorID = " + monitorID + "; Marca = " + make
+                + "; Tamaño = " + size + " cm" + "; Precio = $"
                 + (Math.round(price * 100.0) / 100.0) + '}';
     }
 
