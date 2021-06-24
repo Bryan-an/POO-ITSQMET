@@ -65,7 +65,7 @@ public class Order {
     }
 
     public double calculateTotal() {
-        return computers.stream().mapToDouble(computer -> computer.getPrice()).sum();
+        return computers.stream().mapToDouble(Computer::getPrice).sum();
     }
 
     public double discountOrder() {

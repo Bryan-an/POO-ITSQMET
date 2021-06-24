@@ -168,7 +168,7 @@ public final class Tecnomega {
             if (orderID > 0 && orderID <= Order.getOrderCounter()) {
                 orders.stream()
                         .filter(order -> order.getOrderID() == orderID)
-                        .forEach(order -> ((Order) order).showOrder());
+                        .forEach(Order::showOrder);
             } else {
                 System.out.println("\nNo existe");
             }
