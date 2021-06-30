@@ -15,8 +15,8 @@ import java.util.Scanner;
 public final class Tecnomega {
 
     //Fields
-    private Scanner sc = new Scanner(System.in);
-    private ArrayList<Order> orders = new ArrayList<Order>();
+    private final Scanner sc = new Scanner(System.in);
+    private final ArrayList<Order> orders = new ArrayList<Order>();
 
     //Constructor
     public Tecnomega() {

@@ -20,7 +20,7 @@ public class Monitor {
 
     //Constructors
     private Monitor() {
-        monitorID = ++monitorCounter;
+        this.monitorID = ++Monitor.monitorCounter;
     }
 
     public Monitor(String make, double size, double price) {

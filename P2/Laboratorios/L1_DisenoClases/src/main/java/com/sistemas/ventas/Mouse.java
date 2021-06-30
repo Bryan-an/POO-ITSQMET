@@ -18,7 +18,24 @@ public class Mouse extends InputDevices {
     //Constructor
     public Mouse(String inputType, String make, double price) {
         super(inputType, make, price);
-        mouseID = ++mouseCounter;
+        this.mouseID = ++Mouse.mouseCounter;
+    }
+
+    //get-set
+    public static int getMouseCounter() {
+        return mouseCounter;
+    }
+
+    public static void setMouseCounter(int mouseCounter) {
+        Mouse.mouseCounter = mouseCounter;
+    }
+
+    public int getMouseID() {
+        return mouseID;
+    }
+
+    public void setMouseID(int mouseID) {
+        this.mouseID = mouseID;
     }
 
     //toString

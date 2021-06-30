@@ -22,7 +22,7 @@ public class Computer {
 
     //Constructors
     private Computer() {
-        computerID = ++computerCounter;
+        this.computerID = ++Computer.computerCounter;
     }
 
     public Computer(String make, Monitor monitor, Keyboard keyboard, Mouse mouse) {
@@ -98,7 +98,7 @@ public class Computer {
         return "Computadora{\nComputadoraID: " + computerID + "\nMarca: " + make
                 + "\nMonitor: " + monitor + "\nTeclado: " + keyboard
                 + "\nRatón: " + mouse + "\nPrecio: $"
-                + (Math.round(price * 100.0) / 100.0) + "}\n";
+                + price + "}\n";
     }
 
 }

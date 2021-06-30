@@ -11,14 +11,31 @@ package com.sistemas.ventas;
 public class Keyboard extends InputDevices {
 
     //Fields
-    private static int mouseCounter;
+    private static int keyboardCounter;
 
     private int keyboardID;
 
     //Constructor
     public Keyboard(String inputType, String make, double price) {
         super(inputType, make, price);
-        keyboardID = ++mouseCounter;
+        this.keyboardID = ++Keyboard.keyboardCounter;
+    }
+
+    //get-set
+    public static int getKeyboardCounter() {
+        return keyboardCounter;
+    }
+
+    public static void setKeyboardCounter(int keyboardCounter) {
+        Keyboard.keyboardCounter = keyboardCounter;
+    }
+
+    public int getKeyboardID() {
+        return keyboardID;
+    }
+
+    public void setKeyboardID(int keyboardID) {
+        this.keyboardID = keyboardID;
     }
 
     //toString
