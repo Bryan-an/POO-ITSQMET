@@ -22,7 +22,7 @@ public class Order {
     //Constructor
     public Order() {
         computers = new ArrayList<Computer>();
-        orderID = ++orderCounter;
+        this.orderID = ++Order.orderCounter;
     }
 
     //Get-Set
