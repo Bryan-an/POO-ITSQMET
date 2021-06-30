@@ -113,13 +113,13 @@ public final class Tecnomega {
 
     public boolean askMoreComputers(Order order) {
         boolean wantMore = false;
-        char other;
+        char optionCharacter;
 
         do {
             System.out.println("\n¿Desea comprar otra computadora? (s/n):");
-            other = sc.next().charAt(0);
+            optionCharacter = sc.next().charAt(0);
 
-            switch (other) {
+            switch (optionCharacter) {
                 case 'n' -> {
                     order.showOrder();
                     System.out.println("\nCosto tatal del pedido: $"
@@ -132,7 +132,7 @@ public final class Tecnomega {
                 default ->
                     System.out.println("\nOpción inválida intente de nuevo");
             }
-        } while (!(other == 's' || other == 'n'));
+        } while (!(optionCharacter == 's' || optionCharacter == 'n'));
 
         return wantMore;
     }
