@@ -4,7 +4,7 @@
 package com.desarrollo.datos;
 
 /**
- * Una interface sólo puede heredar de otra interface
+ * Una interfaz sólo puede heredar de otra interfaz
  * 
  * @author Bryan Andagoya
  */
