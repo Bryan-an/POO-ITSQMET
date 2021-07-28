@@ -3,6 +3,8 @@
  */
 package com.desarrollo.foreach;
 
+import java.util.Arrays;
+
 /**
  * Creada el 7/7/2021
  *
@@ -27,6 +29,7 @@ public class ClaseEjecutableForeach {
         //vector de objetos persona
         Persona[] personas = {new Persona("Monica", 21), new Persona("Bryan", 19)};
 
+        //Arrays.asList(personas).forEach(System.out::println); 
         //Iterar con el foreach
         for (Persona persona : personas) {
             System.out.println(persona);

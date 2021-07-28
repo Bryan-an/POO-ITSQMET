@@ -18,17 +18,12 @@ public final class Tecnomega {
     private final Scanner sc = new Scanner(System.in);
     private final ArrayList<Order> orders = new ArrayList<Order>();
 
-    //Constructor
-    public Tecnomega() {
-        displayMenu();
-    }
-
     //Methods
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new Tecnomega();
+        new Tecnomega().displayMenu();
     }
 
     public void displayMenu() {

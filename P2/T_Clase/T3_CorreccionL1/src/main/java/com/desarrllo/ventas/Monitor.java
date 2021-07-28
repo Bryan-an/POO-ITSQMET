@@ -60,7 +60,8 @@ public class Monitor {
     //toString
     @Override
     public String toString() {
-        return "Monitor{" + "idMonitor=" + idMonitor + ", marca=" + marca + ", tamanio=" + tamanio + '}';
+        return "Monitor{" + "idMonitor=" + idMonitor + ", marca=" + marca
+                + ", tamanio=" + tamanio + '}';
     }
 
 }

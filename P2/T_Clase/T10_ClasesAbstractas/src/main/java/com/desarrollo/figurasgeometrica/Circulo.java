@@ -3,6 +3,8 @@
  */
 package com.desarrollo.figurasgeometrica;
 
+import static java.lang.Math.*;
+
 /**
  *
  * @author Bryan Andagoya
@@ -20,7 +22,7 @@ public class Circulo extends FiguraGeometrica {
 
     @Override
     public void area() {
-        double area = Math.PI * Math.pow(valor1, 2);
+        double area = PI * pow(valor1, 2);
         System.out.println("El área del circulo es: " + area);
     }
 

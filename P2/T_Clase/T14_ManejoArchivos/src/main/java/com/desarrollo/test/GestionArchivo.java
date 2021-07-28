@@ -16,15 +16,16 @@ public class GestionArchivo {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         int op;
         String nombreArchivo
                 = "C:\\Users\\bryan\\OneDrive\\Documentos\\ITSQMET\\S2\\POO\\P2\\T_Clase\\T14_ManejoArchivos\\estudiantes.txt";
-        
+
         Scanner sc = new Scanner(System.in);
-        
+
         System.out.println("\nMenú archivo");
         System.out.println("-----------------------------------------------\n");
+
         do {
             System.out.println("\n1. Crear Archivo");
             System.out.println("2. Escribir Archivo");
@@ -34,7 +35,7 @@ public class GestionArchivo {
             System.out.println("6. Salir");
             System.out.println("\nEscoja una opción:");
             op = sc.nextInt();
-            
+
             switch (op) {
                 case 1:
                     Archivo.crearArchivo(nombreArchivo);
@@ -59,5 +60,5 @@ public class GestionArchivo {
             }
         } while (op != 6);
     }
-    
+
 }

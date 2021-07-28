@@ -4,8 +4,7 @@
 package com.desarrollo.manejoarchivos;
 
 import java.io.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.nio.charset.Charset;
 
 /**
  *
@@ -18,28 +17,36 @@ public class Archivo {
         File archivo = new File(nombreArchivo);
 
         try {
-            PrintWriter crearArchivo = new PrintWriter(archivo);
-            //cerrar flujo para la creación del archivo
-            crearArchivo.close();
-            System.out.println("El archivo se ha creado correctamente");
-        } catch (FileNotFoundException ex) {
+            if (archivo.exists()) {
+                System.out.println("\nEl archivo ya existe");
+            } else {
+                archivo.createNewFile();
+                System.out.println("\nEl archivo se ha creado correctamente");
+            }
+        } catch (IOException ex) {
             ex.printStackTrace(System.out);
         }
+//        try (PrintWriter crearArchivo = new PrintWriter(archivo)) {
+//            //cerrar flujo para la creación del archivo
+//            System.out.println("El archivo se ha creado correctamente");
+//        } catch (FileNotFoundException ex) {
+//            ex.printStackTrace(System.out);
+//        }
+
     }
 
     //método escritura archivo
     public static void escribirArchivo(String nombreArchivo) {
         File archivo = new File(nombreArchivo);
-        try {
-            PrintWriter escrituraArchivo = new PrintWriter(nombreArchivo);
-            String contenido = "Texto nuevo a agregar en el archivo";
-            escrituraArchivo.println(contenido);
-            escrituraArchivo.println();
-            escrituraArchivo.println("Terminó la escritura");
 
-            escrituraArchivo.close();
-            System.out.println("Se ha escrito en el archivo");
-        } catch (FileNotFoundException ex) {
+        try (PrintWriter escritor = new PrintWriter(archivo, "UTF-8")) {
+            String contenido = "Texto nuevo a agregar en el archivo";
+            escritor.println(contenido);
+            escritor.println();
+            escritor.println("Terminó la escritura");
+
+            System.out.println("\nSe ha escrito en el archivo");
+        } catch (IOException ex) {
             ex.printStackTrace(System.out);
         }
     }
@@ -49,17 +56,16 @@ public class Archivo {
         File archivo = new File(nombreArchivo);
         String texto;
 
-        try {
-            BufferedReader lectura = new BufferedReader(new FileReader(archivo));
+        try (BufferedReader lector
+                = new BufferedReader(new FileReader(archivo, Charset.forName("UTF-8")))) {
 
-            texto = lectura.readLine();
+            texto = lector.readLine();
 
             while (texto != null) {
                 System.out.println(texto);
-                texto = lectura.readLine();
+                texto = lector.readLine();
             }
 
-            lectura.close();
         } catch (FileNotFoundException ex) {
             ex.printStackTrace(System.out);
         } catch (IOException ex) {
@@ -70,17 +76,16 @@ public class Archivo {
     public static void agregarTextoArchivo(String nombreArchivo) {
         File archivo = new File(nombreArchivo);
 
-        try {
-            PrintWriter agregarTexto = new PrintWriter(new FileWriter(archivo, true)); //añadir texto a un archivo existente
-            String contenido = "Agregar texto adicional";
-            agregarTexto.println(contenido);
-            agregarTexto.println();
-            agregarTexto.println("Fin - no hay más texto");
-            System.out.println("Se ha agregado el nuevo texto");
+        try (PrintWriter escritor
+                = new PrintWriter(new FileWriter(archivo,
+                        Charset.forName("UTF-8"), true))) { //añadir texto a un archivo existente
 
-            agregarTexto.close();
-        } catch (FileNotFoundException ex) {
-            ex.printStackTrace(System.out);
+            String contenido = "Agregar texto adicional";
+            escritor.println(contenido);
+            escritor.println();
+            escritor.println("Fin - no hay más texto");
+            System.out.println("\nSe ha agregado el nuevo texto");
+
         } catch (IOException ex) {
             ex.printStackTrace(System.out);
         }
@@ -90,9 +95,9 @@ public class Archivo {
         File archivo = new File(nombreArchivo);
 
         if (archivo.delete()) {
-            System.out.println("El archivo ha sido eliminado");
+            System.out.println("\nEl archivo ha sido eliminado");
         } else {
-            System.out.println("El archivo no se ha encontrado");
+            System.out.println("\nEl archivo no se ha encontrado");
         }
     }
 }
