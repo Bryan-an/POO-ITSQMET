@@ -1,0 +1,3 @@
+Pelicula{nombre=shutter, genero=terror, precio=3.0}
+Pelicula{nombre=chucky, genero=terror, precio=2.0}
+Pelicula{nombre=Chfafdsf, genero=terror, precio=3.0}

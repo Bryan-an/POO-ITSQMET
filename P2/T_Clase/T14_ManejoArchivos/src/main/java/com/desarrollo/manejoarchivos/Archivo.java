@@ -39,7 +39,7 @@ public class Archivo {
     public static void escribirArchivo(String nombreArchivo) {
         File archivo = new File(nombreArchivo);
 
-        try (PrintWriter escritor = new PrintWriter(archivo, "UTF-8")) {
+        try ( PrintWriter escritor = new PrintWriter(archivo, "UTF-8")) {
             String contenido = "Texto nuevo a agregar en el archivo";
             escritor.println(contenido);
             escritor.println();
@@ -56,14 +56,11 @@ public class Archivo {
         File archivo = new File(nombreArchivo);
         String texto;
 
-        try (BufferedReader lector
+        try ( BufferedReader lector
                 = new BufferedReader(new FileReader(archivo, Charset.forName("UTF-8")))) {
 
-            texto = lector.readLine();
-
-            while (texto != null) {
+            while ((texto = lector.readLine()) != null) {
                 System.out.println(texto);
-                texto = lector.readLine();
             }
 
         } catch (FileNotFoundException ex) {
@@ -76,7 +73,7 @@ public class Archivo {
     public static void agregarTextoArchivo(String nombreArchivo) {
         File archivo = new File(nombreArchivo);
 
-        try (PrintWriter escritor
+        try ( PrintWriter escritor
                 = new PrintWriter(new FileWriter(archivo,
                         Charset.forName("UTF-8"), true))) { //añadir texto a un archivo existente
 
