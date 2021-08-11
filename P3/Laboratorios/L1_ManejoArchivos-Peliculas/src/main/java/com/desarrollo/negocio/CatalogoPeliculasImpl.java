@@ -6,6 +6,7 @@ package com.desarrollo.negocio;
 import com.desarrollo.datos.*;
 import com.desarrollo.domain.*;
 import java.util.List;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -38,13 +39,18 @@ public class CatalogoPeliculasImpl implements CatalogoPeliculas {
     public void listarPeliculas(String nombreArchivo) {
         //capturar el método listar-retorna una lista
         List<Pelicula> peliculas = bdd.listar(nombreArchivo);
-        System.out.println("\nInformación películas");
-        System.out.printf("%-30s %-30s %-30s \n", "Nombre", "Género", "Precio");
+
         System.out.println();
-        peliculas.forEach(pelicula -> System.out.printf("%-30s %-30s %-30s \n",
+        System.out.println(StringUtils.repeat("-", 94));
+        System.out.printf("|%-92s|\n", "Información películas");
+        System.out.println(StringUtils.repeat("-", 94));
+        System.out.printf("|%-30s|%-30s|%-30s|\n", "Nombre", "Género", "Precio");
+        System.out.println(StringUtils.repeat("-", 94));
+        peliculas.forEach(pelicula -> System.out.printf("|%-30s|%-30s|%-30s|\n",
                 pelicula.getNombre(),
                 pelicula.getGenero(),
                 pelicula.getPrecio()));
+        System.out.println(StringUtils.repeat("-", 94));
     }
 
     @Override

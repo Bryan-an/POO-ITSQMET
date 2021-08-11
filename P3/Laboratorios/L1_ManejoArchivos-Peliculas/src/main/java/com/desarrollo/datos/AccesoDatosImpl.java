@@ -6,6 +6,8 @@ package com.desarrollo.datos;
 import com.desarrollo.domain.Pelicula;
 import java.io.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,24 +18,18 @@ public class AccesoDatosImpl implements AccesoDatos {
     //Verificar si existe el archivo
     @Override
     public boolean existe(String nombreArchivo) {
-        boolean archivoExiste;
-        File archivo = new File(nombreArchivo);
-        archivoExiste = archivo.exists(); //true, false
-        return archivoExiste;
+        return new File(nombreArchivo).exists();
     }
 
     @Override
     public List<Pelicula> listar(String nombreArchivo) {
         File archivo = new File(nombreArchivo);
         List<Pelicula> peliculas = new ArrayList<Pelicula>();
-        try {
-            BufferedReader entrada = new BufferedReader(new FileReader(archivo));
-            String lectura = entrada.readLine();
 
-            while (lectura != null) {
-//                int indiceInicial;
-//                int indiceFinal;
+        try ( BufferedReader entrada = new BufferedReader(new FileReader(archivo))) {
+            String lectura;
 
+            while ((lectura = entrada.readLine()) != null) {
                 char[] arrayLectura = lectura.toCharArray();
                 boolean capturar = false;
                 int indice = 0;
@@ -42,18 +38,6 @@ public class AccesoDatosImpl implements AccesoDatos {
                 String genero;
                 double precio;
 
-//                datosPelicula = lectura.split(",");
-//
-//                indiceInicial = datosPelicula[0].indexOf("=") + 1;
-//                nombre = datosPelicula[0].substring(indiceInicial);
-//
-//                indiceInicial = datosPelicula[1].indexOf("=") + 1;
-//                genero = datosPelicula[1].substring(indiceInicial);
-//
-//                indiceInicial = datosPelicula[2].indexOf("=") + 1;
-//                indiceFinal = datosPelicula[2].indexOf("}");
-//                precio = Double.parseDouble(datosPelicula[2].substring(
-//                        indiceInicial, indiceFinal));
                 for (int i = 0; i < arrayLectura.length; i++) {
 
                     if (arrayLectura[i] == '=') {
@@ -75,11 +59,7 @@ public class AccesoDatosImpl implements AccesoDatos {
 
                 Pelicula pelicula = new Pelicula(nombre, genero, precio);
                 peliculas.add(pelicula);
-//                System.out.println(lectura);
-                lectura = entrada.readLine();
             }
-
-            entrada.close();
 
         } catch (FileNotFoundException ex) {
             ex.printStackTrace(System.out);
@@ -107,21 +87,16 @@ public class AccesoDatosImpl implements AccesoDatos {
     public String buscar(String nombreArchivo, String buscar) {
         File archivo = new File(nombreArchivo);
 
-        try {
-            BufferedReader entrada = new BufferedReader(new FileReader(archivo));
-            String lectura = entrada.readLine();
+        try ( BufferedReader entrada = new BufferedReader(new FileReader(archivo))) {
+            String lectura;
 
-            while (lectura != null) {
+            while ((lectura = entrada.readLine()) != null) {
                 if (lectura.substring(lectura.indexOf("=") + 1, lectura.indexOf(","))
                         .equals(buscar)) {
 
                     return "\nSí se encontro la película";
                 }
-
-                lectura = entrada.readLine();
             }
-
-            entrada.close();
         } catch (IOException ex) {
             ex.printStackTrace(System.out);
         }
@@ -134,10 +109,8 @@ public class AccesoDatosImpl implements AccesoDatos {
         File archivo = new File(nombreArchivo);
 
         try {
-            PrintWriter crearArchivo = new PrintWriter(archivo);
-
-            crearArchivo.close();
-        } catch (FileNotFoundException ex) {
+            archivo.createNewFile();
+        } catch (IOException ex) {
             ex.printStackTrace(System.out);
         }
     }

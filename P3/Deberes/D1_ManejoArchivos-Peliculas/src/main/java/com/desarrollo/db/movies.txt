@@ -1,0 +1,3 @@
+Pelicula {nombre = dsf; genero = fsdf; precio = 45.0}
+Pelicula {nombre = fsdf; genero = er; precio = 78.0}
+Pelicula {nombre = sdaf; genero = juynt; precio = 12.0}

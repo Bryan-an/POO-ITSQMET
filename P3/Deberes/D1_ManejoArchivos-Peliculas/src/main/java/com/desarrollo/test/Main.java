@@ -14,7 +14,7 @@ import java.util.function.Predicate;
 public class Main {
 
     //Fields
-    private MovieCatalog catalog = new MovieCatalogImp();
+    private final MovieCatalog catalog = new MovieCatalogImp();
     String fileName = "src/main/java/com/desarrollo/db/movies.txt";
 
     /**
@@ -133,7 +133,7 @@ public class Main {
     }
 
     /**
-     * Method that edits a movien from the file.
+     * Method that edits a movie from the file.
      */
     public void editMovie() {
         String oldName = askForMovieName(

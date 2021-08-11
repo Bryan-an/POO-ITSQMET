@@ -6,6 +6,7 @@ package com.desarrollo.business;
 import com.desarrollo.data.*;
 import com.desarrollo.domain.Movie;
 import java.util.List;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -41,12 +42,17 @@ public class MovieCatalogImp implements MovieCatalog {
         if (movies.isEmpty()) {
             System.out.println("\nAún no se registra ninguna película");
         } else {
-            System.out.println("\nInformación películas");
-            System.out.printf("%-30s %-30s %-30s \n", "Nombre", "Género", "Precio");
-            movies.forEach(movie -> System.out.printf("%-30s %-30s %-30s \n",
+            System.out.println();
+            System.out.println(StringUtils.repeat("-", 94));
+            System.out.printf("|%-92s|\n", "Información películas");
+            System.out.println(StringUtils.repeat("-", 94));
+            System.out.printf("|%-30s|%-30s|%-30s|\n", "Nombre", "Género", "Precio");
+            System.out.println(StringUtils.repeat("-", 94));
+            movies.forEach(movie -> System.out.printf("|%-30s|%-30s|%-30s|\n",
                     movie.getName(),
                     movie.getGenre(),
                     "$ " + movie.getPrice()));
+            System.out.println(StringUtils.repeat("-", 94));
         }
     }
 

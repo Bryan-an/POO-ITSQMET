@@ -67,7 +67,6 @@ public class DataAccessImp implements DataAccess {
         File file = new File(fileName);
 
         try ( PrintWriter output = new PrintWriter(new FileWriter(file, append))) {
-
             output.println(movie);
         } catch (IOException ex) {
             ex.printStackTrace(System.out);
@@ -80,7 +79,6 @@ public class DataAccessImp implements DataAccess {
         String data;
 
         try ( BufferedReader input = new BufferedReader(new FileReader(file))) {
-
             while ((data = input.readLine()) != null) {
                 if (data.substring(data.indexOf("=") + 2, data.indexOf(";"))
                         .equals(movieName)) {
@@ -97,7 +95,6 @@ public class DataAccessImp implements DataAccess {
 
     @Override
     public void create(String fileName) {
-
         File file = new File(fileName);
 
         try {
@@ -105,7 +102,6 @@ public class DataAccessImp implements DataAccess {
         } catch (IOException ex) {
             ex.printStackTrace(System.out);
         }
-
     }
 
     @Override
@@ -134,7 +130,7 @@ public class DataAccessImp implements DataAccess {
 
         if (edited) {
             file.delete();
-            movies.forEach(m -> write(m, fileName, true));
+            movies.forEach(movie -> write(movie, fileName, true));
         }
 
         return edited;
