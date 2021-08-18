@@ -58,4 +58,12 @@ public class CatalogoPeliculasImpl implements CatalogoPeliculas {
         System.out.println(bdd.buscar(nombreArchivo, buscar));
     }
 
+    @Override
+    public void editarPelicula(String nombre, String genero, double precio,
+            String nombreArchivo, String nombreEditar) {
+
+        Pelicula pelicula = new Pelicula(nombre, genero, precio);
+        bdd.editar(pelicula, nombreArchivo, nombreEditar);
+    }
+
 }

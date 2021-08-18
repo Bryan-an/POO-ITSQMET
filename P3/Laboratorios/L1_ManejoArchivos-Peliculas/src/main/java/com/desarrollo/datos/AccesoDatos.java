@@ -24,4 +24,6 @@ public interface AccesoDatos {
 
     void borrar(String nombreArchivo);
 
+    void editar(Pelicula pelicula, String nombreArchivo, String nombreEditar);
+
 }

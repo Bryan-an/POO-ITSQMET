@@ -15,6 +15,8 @@ import java.util.logging.Logger;
  */
 public class AccesoDatosImpl implements AccesoDatos {
 
+    private static boolean bandera = false;
+
     //Verificar si existe el archivo
     @Override
     public boolean existe(String nombreArchivo) {
@@ -93,7 +95,7 @@ public class AccesoDatosImpl implements AccesoDatos {
             while ((lectura = entrada.readLine()) != null) {
                 if (lectura.substring(lectura.indexOf("=") + 1, lectura.indexOf(","))
                         .equals(buscar)) {
-
+                    bandera = true;
                     return "\nSí se encontro la película";
                 }
             }
@@ -120,6 +122,39 @@ public class AccesoDatosImpl implements AccesoDatos {
         File archivo = new File(nombreArchivo);
         archivo.delete();
         System.out.println("\nEl archivo se ha eliminado");
+    }
+
+    @Override
+    public void editar(Pelicula pelicula, String nombreArchivo, String nombreEditar) {
+        File archivo = new File(nombreArchivo);
+        try {
+            //archivo temporal
+            File archivoTemporal = new File(archivo.getAbsolutePath() + ".tmp");
+            BufferedReader entrada = new BufferedReader(new FileReader(archivo));
+            //Escribir el archivo temporal
+            PrintWriter pw = new PrintWriter(new FileWriter(archivoTemporal, true));
+            String lectura;
+
+            while ((lectura = entrada.readLine()) != null) {
+                if (lectura.substring(lectura.indexOf("=") + 1, lectura.indexOf(","))
+                        .equals(nombreEditar)) {
+
+                    pw.println(pelicula);
+                } else {
+                    pw.println(lectura);
+                }
+            }
+
+            pw.close();
+            entrada.close();
+
+            //eliminar archivo original
+            archivo.delete();
+            //renombrar archivo
+            archivoTemporal.renameTo(archivo);
+        } catch (IOException ex) {
+            ex.printStackTrace(System.out);
+        }
     }
 
 }

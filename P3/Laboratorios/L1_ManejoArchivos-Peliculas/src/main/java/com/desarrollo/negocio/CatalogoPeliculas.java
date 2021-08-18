@@ -17,4 +17,7 @@ public interface CatalogoPeliculas {
     void listarPeliculas(String nombreArchivo);
 
     void buscarPelicula(String nombreArchivo, String buscar);
+
+    void editarPelicula(String nombre, String genero, double precio,
+            String nombreArchivo, String nombreEditar);
 }
