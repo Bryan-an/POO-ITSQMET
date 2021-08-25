@@ -5,8 +5,7 @@ package com.desarrollo.test;
 
 import com.desarrollo.datos.PersonaDAO;
 import com.desarrollo.domain.Persona;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  *
@@ -22,7 +21,7 @@ public class ClaseEjecutableManejoJDBC {
         Scanner sc = new Scanner(System.in);
         List<Persona> personas;
         String nombre, apellido, email;
-        int edad, telefono;
+        int edad, telefono, idPersona;
 
         //objeto persona DAO
         PersonaDAO personaDAO = new PersonaDAO();
@@ -31,7 +30,9 @@ public class ClaseEjecutableManejoJDBC {
             System.out.println("Menú operaciones");
             System.out.println("1. Listar personas");
             System.out.println("2. Insertar persona");
-            System.out.println("3. Salir");
+            System.out.println("3. Actualizar persona");
+            System.out.println("4. Eliminar persona");
+            System.out.println("5. Salir");
             System.out.println("Escoja una opción: ");
             op = sc.nextInt();
 
@@ -56,18 +57,50 @@ public class ClaseEjecutableManejoJDBC {
                     System.out.println("Email:");
                     email = sc.next();
                     //generar objeto
-                    Persona persona = new Persona(nombre, apellido, edad, telefono, email);
+                    Persona personaInsertar = new Persona(nombre, apellido, edad, telefono, email);
 
                     System.out.println("Los registros insertados son: "
-                            + personaDAO.insert(persona));
+                            + personaDAO.insert(personaInsertar));
                     break;
                 case 3:
+                    System.out.println("Ingrese el id de la persona a actualizar: ");
+                    idPersona = sc.nextInt();
+                    System.out.println("\n-----------------------------------");
+                    System.out.println("Información a actualizar");
+                    System.out.println("Nombre: ");
+                    nombre = sc.next();
+                    System.out.println("Apellido: ");
+                    apellido = sc.next();
+                    System.out.println("Edad: ");
+                    edad = sc.nextInt();
+                    System.out.println("Telefono: ");
+                    telefono = sc.nextInt();
+                    System.out.println("Email: ");
+                    email = sc.next();
+
+                    Persona personaActualizar
+                            = new Persona(idPersona, nombre, apellido, edad, telefono, email);
+
+                    System.out.println("Los registros actualizados son: "
+                            + personaDAO.update(personaActualizar));
+                    break;
+                case 4:
+                    System.out.println("Eliminar persona");
+                    System.out.println("Id persona: ");
+                    idPersona = sc.nextInt();
+
+                    Persona personaEliminar = new Persona(idPersona);
+
+                    System.out.println("Los registros eliminados son: "
+                            + personaDAO.delete(personaEliminar));
+                    break;
+                case 5:
                     System.out.println("Gracias por utilizar nuestro programa");
                     break;
                 default:
                     System.out.println("Opción inválida");
             }
-        } while (op != 3);
+        } while (op != 5);
     }
 
 }
